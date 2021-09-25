@@ -16,10 +16,15 @@
     "react-dom": ">16.0.0",
     "typescript": "^4.1.2"
   },
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
     "start": "npm run build watch",
     "build": "microbundle --css inline --jsx React.createElement --jsxImportSource react --globals react/jsx-runtime=jsx --format modern,cjs",
-    "test": "echo 'no test specified' || true"
+    "test": "echo 'no test specified' || true",
+    "prepare": "npm run build"
   },
   "eslintConfig": {
     "extends": [
