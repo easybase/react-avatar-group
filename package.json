@@ -1,6 +1,9 @@
 {
   "name": "react-avatar-group",
   "main": "dist/index.js",
+  "author": "easybase",
+  "license": "MIT",
+  "repository": "easybase/react-avatar-group",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "version": "0.1.2",
