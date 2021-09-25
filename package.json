@@ -3,7 +3,7 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
