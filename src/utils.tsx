@@ -1,13 +1,13 @@
-const randomAvatarColor = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#009688", "#ffc107", "#ff9800", "#ff5722", "#795548"];
+const randomAvatarColor = ["f44336", "e91e63", "9c27b0", "673ab7", "3f51b5", "2196f3", "009688", "ffc107", "ff9800", "ff5722", "795548"];
 
-export function colorFromName(name: string) {
+export function colorFromName(name: string, avatarColors = randomAvatarColor) {
     let hash = 0
     let len = name.length;
     for (let i = 0; i < len; i++) {
         hash = ((hash << 5) - hash) + name.charCodeAt(i);
         hash |= 0;
     }
-    return randomAvatarColor[Math.abs(hash) % randomAvatarColor.length];
+    return avatarColors[Math.abs(hash) % avatarColors.length];
 }
 
 export function cleanSearchParams(params: URLSearchParams) {

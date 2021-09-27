@@ -21,7 +21,7 @@ interface IOverflowAvatar {
 
 export default function OverflowAvatar({ avatar, options, hidden }: IOverflowAvatar) {
     const size = options.size || 25;
-    const backgroundColor = options.fontColor || options.backgroundColor || colorFromName(avatar).slice(1);
+    const backgroundColor = options.fontColor || options.backgroundColor || colorFromName(avatar, options.randomBackgroundColors);
 
     let fontSize = options.fontSize || 0.66;
     if (avatar.length === 3) {

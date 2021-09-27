@@ -29,7 +29,7 @@ export default function SingleAvatar({ avatar, options, hidden }: ISingleAvatar)
             name: avatar,
             "font-size": `${fontSize}`,
             color: options.fontColor || "FFFFFF",
-            background: options.backgroundColor || colorFromName(avatar).slice(1),
+            background: options.backgroundColor || colorFromName(avatar, options.randomBackgroundColors),
             bold: options.bold ? 'true' : '',
             uppercase: options.uppercase ? '' : 'false',
             length: options.initialCharacters ? `${options.initialCharacters}` : '',

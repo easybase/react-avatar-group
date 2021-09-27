@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import SingleAvatar from './SingleAvatar';
 import OverflowAvatar from './OverflowAvatar';
 import { AvatarGroupOptions, IAvatar } from './types';
-import { ANIMATION_EASING } from './utils';
-
 
 const GroupDiv = styled.div`
     display: block;

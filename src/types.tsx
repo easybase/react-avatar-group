@@ -17,7 +17,7 @@ export interface BaseAvatarGroup {
     // Avatar image size in pixels. Between: 16 and 512
     size?: number;
     // Array of Hex colors to choose from as background colors, without the hash (#). This will be overridden by `backgroundColor`
-    randomBackgroundColors?: string[]; // TODO: Handle
+    randomBackgroundColors?: string[];
     // Shadow elevation as an integer from 1 to 5
     shadow?: number;
     style?: React.CSSProperties;
