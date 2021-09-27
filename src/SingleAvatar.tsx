@@ -1,27 +1,29 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { IAvatar, AvatarGroupOptions } from './types';
-import { colorFromName, cleanSearchParams, boxShadows } from './utils';
+import { colorFromName, cleanSearchParams, boxShadows, ANIMATION_EASING } from './utils';
 
 const Img = styled.img<AvatarGroupOptions & { isOverflowAvatar?: boolean }>`
     height: ${props => props.size}px;
     width: ${props => props.size}px;
     position: relative;
-    transition: .2s ease;
+    transition: margin-left ${ANIMATION_EASING}, opacity ${ANIMATION_EASING};
     margin-left: -10px;
     border-radius: ${props => props.square ? '0px' : '50%'};
     user-select: none;
     user-drag: none;
-    box-shadow: ${props => props.shadow ? boxShadows[props.shadow] : "none"};
+    display: inline-block;
+    box-shadow: ${props => props.shadow ? boxShadows[props.shadow] : 'none'};
 `;
 
 interface IPersonAvatar {
     avatar: string | IAvatar;
     options: AvatarGroupOptions;
     isOverflowAvatar?: boolean;
+    hidden?: boolean;
 }
 
-export default function PersonAvatar({ avatar, options, isOverflowAvatar }: IPersonAvatar) {
+export default function PersonAvatar({ avatar, options, isOverflowAvatar, hidden }: IPersonAvatar) {
     const size = options.size || 25;
 
     if (typeof avatar === "string") {
@@ -64,6 +66,7 @@ export default function PersonAvatar({ avatar, options, isOverflowAvatar }: IPer
                 isOverflowAvatar={isOverflowAvatar}
                 shadow={options.shadow}
                 style={options.avatarStyle}
+                className={hidden ? isOverflowAvatar ? "overflow-hidden" : "hidden" : ""}
             />
         )
     } else {

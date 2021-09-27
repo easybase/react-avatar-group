@@ -10,13 +10,14 @@ export interface IAvatar {
 export interface BaseAvatarGroup {
     onAvatarClick?(avatar: string, index: number): any;
     max?: number;
+    // If `max` is provided and displayAllOnHover is true, even the overflowing avatars will be shown when the mouse hovers over the group element
     displayAllOnHover?: boolean;
     // Should the avatar be square instead of rounded
     square?: boolean;
     // Avatar image size in pixels. Between: 16 and 512
     size?: number;
-    // Array of Hex colors to choose from as background colors, without the hash (#)
-    backgroundColors?: string[];
+    // Array of Hex colors to choose from as background colors, without the hash (#). This will be overridden by `backgroundColor`
+    randomBackgroundColors?: string[]; // TODO: Handle
     // Shadow elevation as an integer from 1 to 5
     shadow?: number;
     style?: React.CSSProperties;
@@ -38,7 +39,7 @@ export interface AvatarGroupOptions extends BaseAvatarGroup {
     bold?: boolean;
     // Length of the generated initials
     initialCharacters?: number;
-    // Hex color for the image background, without the hash (#)
+    // Hex color for the image background, without the hash (#). Overrides randomBackgroundColors
     backgroundColor?: string;
     // Hex color for the font, without the hash (#)
     fontColor?: string;
