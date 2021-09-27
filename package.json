@@ -29,7 +29,7 @@
     "build": "microbundle --css inline --jsx React.createElement --jsxImportSource react --globals react/jsx-runtime=jsx --format modern,cjs",
     "test": "echo 'no test specified' || true",
     "prepare": "npm run build",
-    "pages": "git checkout gh-pages && git rebase main && cd example && npm run build && shx cp -r ./build ../docs && cd .. && git add . && git commit -m \"gh-pages release\" && git push && git checkout main"
+    "pages": "git add . && git commit -m \"preparing gh-pages deploy\" && git push && git checkout gh-pages && git reset --hard main && cd example && npm run build && shx cp -r ./build ../docs && cd .. && git add . && git commit -m \"gh-pages release\" && git push -f && git checkout main"
   },
   "eslintConfig": {
     "extends": [
