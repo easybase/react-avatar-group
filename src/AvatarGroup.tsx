@@ -34,14 +34,14 @@ export default function AvatarGroup(props: IAvatarGroup) {
     } else {
         if (props.max && props.avatars.length > props.max) {
             return (
-                <GroupDiv>
+                <GroupDiv style={props.style}>
                     {props.avatars.slice(0, props.max).map(ele => <SingleAvatar avatar={ele} options={props} />)}
                     <SingleAvatar avatar={`+${props.avatars.length - props.max}`} options={props} isOverflowAvatar />
                 </GroupDiv>
             );
         } else {
             return (
-                <GroupDiv>
+                <GroupDiv style={props.style}>
                     {props.avatars.map(ele => <SingleAvatar avatar={ele} options={props} />)}
                 </GroupDiv>
             );

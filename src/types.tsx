@@ -4,6 +4,7 @@ export interface IAvatar {
     // Hex color for the font, without the hash (#)
     fontColor?: string;
     avatar: string;
+    style?: React.CSSProperties;
 }
 
 export interface BaseAvatarGroup {
@@ -18,6 +19,9 @@ export interface BaseAvatarGroup {
     backgroundColors?: string[];
     // Shadow elevation as an integer from 1 to 5
     shadow?: number;
+    style?: React.CSSProperties;
+    // Styles applied to all avatars
+    avatarStyle?: React.CSSProperties;
 }
 
 export interface IImageAvatarGroup extends BaseAvatarGroup {

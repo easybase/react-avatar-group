@@ -15,7 +15,6 @@ const Img = styled.img<AvatarGroupOptions & { isOverflowAvatar?: boolean }>`
     box-shadow: ${props => props.shadow ? boxShadows[props.shadow] : "none"};
 `;
 
-
 interface IPersonAvatar {
     avatar: string | IAvatar;
     options: AvatarGroupOptions;
@@ -24,22 +23,23 @@ interface IPersonAvatar {
 
 export default function PersonAvatar({ avatar, options, isOverflowAvatar }: IPersonAvatar) {
     const size = options.size || 25;
-    let fontSize = options.fontSize || 0.66;
-    if (isOverflowAvatar) {
-        if ((avatar as string).length === 3) {
-            if (!options.fontSize || options.fontSize > 0.42) {
-                // If the custom font size is less than the minimum of 0.42, don't override it.
-                fontSize = 0.42;
-            }
-        } else if ((avatar as string).length > 3) {
-            if (!options.fontSize || options.fontSize > 0.32) {
-                // If the custom font size is less than the minimum of 0.32, don't override it.
-                fontSize = 0.32;
-            }
-        }
-    }
 
     if (typeof avatar === "string") {
+        let fontSize = options.fontSize || 0.66;
+        if (isOverflowAvatar) {
+            if (avatar.length === 3) {
+                if (!options.fontSize || options.fontSize > 0.42) {
+                    // If the custom font size is less than the minimum of 0.42, don't override it.
+                    fontSize = 0.42;
+                }
+            } else if (avatar.length > 3) {
+                if (!options.fontSize || options.fontSize > 0.32) {
+                    // If the custom font size is less than the minimum of 0.32, don't override it.
+                    fontSize = 0.32;
+                }
+            }
+        }
+
         const params = new URLSearchParams({
             size: `${size * 2}`,
             name: avatar,
@@ -63,6 +63,7 @@ export default function PersonAvatar({ avatar, options, isOverflowAvatar }: IPer
                 square={!!options.square}
                 isOverflowAvatar={isOverflowAvatar}
                 shadow={options.shadow}
+                style={options.avatarStyle}
             />
         )
     } else {
