@@ -5,7 +5,6 @@ import { AvatarGroupOptions, IAvatar } from './types';
 
 const GroupDiv = styled.div`
     display: block;
-    padding-left: 15px;
     &:hover img:nth-child(n+2) {
         margin-left: 3px;
     }
@@ -32,8 +31,6 @@ interface IAvatarGroup extends AvatarGroupOptions {
 export default function AvatarGroup(props: IAvatarGroup) {
     if (props.avatars.length === 0) {
         return <></>;
-    } else if (props.avatars.length === 1) {
-        return <SingleAvatar avatar={props.avatars[0]} options={props} />;
     } else {
         if (props.max && props.avatars.length > props.max) {
             return (
