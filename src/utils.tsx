@@ -26,3 +26,13 @@ export const boxShadows: Record<number, string> = {
 }
 
 export const ANIMATION_EASING = ".2s ease-in-out";
+
+export const BASE_AVATAR_STYLE = `
+object-fit: cover;
+opacity: 1;
+user-select: none;
+user-drag: none;
+display: inline-block;
+margin-left: -10px;
+position: relative;
+`

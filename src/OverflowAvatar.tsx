@@ -1,20 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { AvatarGroupOptions } from './types';
-import { colorFromName, cleanSearchParams, boxShadows, ANIMATION_EASING } from './utils';
+import { colorFromName, cleanSearchParams, boxShadows, ANIMATION_EASING, BASE_AVATAR_STYLE } from './utils';
 
 const Img = styled.img<AvatarGroupOptions>`
     height: ${props => props.size! - 4}px;
     width: ${props => props.size! - 4}px;
-    position: relative;
-    transition: margin-left ${ANIMATION_EASING}, opacity ${ANIMATION_EASING};
-    margin-left: -10px;
+    transition: margin-left ${ANIMATION_EASING}, opacity ${ANIMATION_EASING}, width ${ANIMATION_EASING};
     border-radius: ${props => props.square ? '0px' : '50%'};
-    user-select: none;
-    user-drag: none;
-    display: inline-block;
     box-shadow: ${props => props.shadow ? boxShadows[props.shadow] : 'none'};
     border: 2px solid #${props => props.backgroundColor};
+    ${BASE_AVATAR_STYLE}
 `;
 
 interface IOverflowAvatar {

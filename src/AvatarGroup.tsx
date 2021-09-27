@@ -1,21 +1,10 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
 import SingleAvatar from './SingleAvatar';
 import OverflowAvatar from './OverflowAvatar';
 import { AvatarGroupOptions, IAvatar } from './types';
 import { ANIMATION_EASING } from './utils';
 
-const opacityAnimationReverse = keyframes`
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    100% {
-        display: inline-block;
-        opacity: 1;
-    }
-`;
 
 const GroupDiv = styled.div`
     display: block;
@@ -25,14 +14,10 @@ const GroupDiv = styled.div`
     &:hover .overflow-hidden {
         opacity: 0;
     }
-    &:hover .hidden {
-        // animation: ${opacityAnimationReverse} ${ANIMATION_EASING};
-        display: inline-block;
-        opacity: 1;
-    }
-    & .hidden {
-        display: none;
+    &:not(:hover) .hidden {
         opacity: 0;
+        width: 0;
+        margin-left: 0;
     }
 `
 
