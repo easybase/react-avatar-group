@@ -7,6 +7,8 @@ export interface IAvatar {
     style?: React.CSSProperties;
     // Text to display in the tooltip
     tooltip?: string;
+    // Font size in percentage of size. Between 0.1 and 1
+    fontSize?: number;
 }
 
 export interface BaseAvatarGroup {
@@ -32,11 +34,6 @@ export interface BaseAvatarGroup {
     tooltipStyle?: React.CSSProperties;
     // Display tooltip arrow
     tooltipArrow?: boolean;
-}
-
-export interface IImageAvatarGroup extends BaseAvatarGroup {
-    // Array of urls or Avatar object for more control
-    avatars: string[] | IAvatar[];
 }
 
 export interface AvatarGroupOptions extends BaseAvatarGroup {

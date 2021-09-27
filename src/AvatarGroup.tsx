@@ -25,22 +25,9 @@ const GroupDiv = styled.div`
     }
 `
 
-// export function ImageAvatarGroup({ avatars, onAvatarClick, max }: IImageAvatarGroup) {
-//     if (avatars.length === 0) {
-//         return <></>;
-//     } else if (avatars.length === 1) {
-//         return <SingleAvatar  />;
-//     } else {
-//         return (
-//             <GroupDiv>
-//                 {avatars.map(ele => <SingleAvatar  />)}
-//             </GroupDiv>
-//         );
-//     }
-// }
 interface IAvatarGroup extends AvatarGroupOptions {
     // Array of strings with avatar names or Avatar object for more control
-    avatars: string[] | IAvatar[];
+    avatars: (string | IAvatar)[];
 }
 
 export default function AvatarGroup(props: IAvatarGroup) {
