@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import SingleAvatar from './SingleAvatar';
+import OverflowAvatar from './OverflowAvatar';
 import { AvatarGroupOptions, IAvatar } from './types';
 import { ANIMATION_EASING } from './utils';
 
@@ -71,7 +72,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                                 key={"avatar-max-" + i}
                             />)
                         }
-                        <SingleAvatar avatar={`+${props.avatars.length - props.max}`} options={props} isOverflowAvatar key="avatar-overflow" hidden={overrideMax} />
+                        <OverflowAvatar avatar={`+${props.avatars.length - props.max}`} options={props} key="avatar-overflow" hidden={overrideMax} />
                     </GroupDiv>
                 );
             } else {
@@ -84,7 +85,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                                 key={"avatar-max-" + i}
                             />)
                         }
-                        <SingleAvatar avatar={`+${props.avatars.length - props.max}`} options={props} isOverflowAvatar key="avatar-overflow" />
+                        <OverflowAvatar avatar={`+${props.avatars.length - props.max}`} options={props} key="avatar-overflow" />
                     </GroupDiv>
                 );
             }
