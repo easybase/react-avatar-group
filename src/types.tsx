@@ -5,6 +5,8 @@ export interface IAvatar {
     fontColor?: string;
     avatar: string;
     style?: React.CSSProperties;
+    // Text to display in the tooltip
+    tooltip?: string;
 }
 
 export interface BaseAvatarGroup {
@@ -24,6 +26,10 @@ export interface BaseAvatarGroup {
     style?: React.CSSProperties;
     // Styles applied to all avatars
     avatarStyle?: React.CSSProperties;
+    // Don't display a tooltip when the mouse hovers over the avatar
+    hideTooltip?: boolean;
+    // Styles applied to all tooltips
+    tooltipStyle?: React.CSSProperties;
 }
 
 export interface IImageAvatarGroup extends BaseAvatarGroup {

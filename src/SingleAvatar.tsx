@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { IAvatar, AvatarGroupOptions } from './types';
 import { colorFromName, cleanSearchParams, boxShadows, ANIMATION_EASING, BASE_AVATAR_STYLE } from './utils';
+import Tippy from '@tippyjs/react';
 
 const Img = styled.img<AvatarGroupOptions & { isOverflowAvatar?: boolean }>`
     height: ${props => props.size}px;
@@ -35,20 +36,22 @@ export default function SingleAvatar({ avatar, options, hidden }: ISingleAvatar)
             length: options.initialCharacters ? `${options.initialCharacters}` : '',
             rounded: options.square ? 'false ' : ''
         });
-        
+
         cleanSearchParams(params);
 
         return (
-            <Img
-                draggable="false"
-                alt={`ui-avatar-${avatar}`}
-                src={`https://ui-avatars.com/api/?${params.toString()}`}
-                size={size}
-                square={!!options.square}
-                shadow={options.shadow}
-                style={options.avatarStyle}
-                className={hidden ? "hidden" : ""}
-            />
+            <Tippy content="Hello" arrow disabled={options.hideTooltip}>
+                <Img
+                    draggable="false"
+                    alt={`ui-avatar-${avatar}`}
+                    src={`https://ui-avatars.com/api/?${params.toString()}`}
+                    size={size}
+                    square={!!options.square}
+                    shadow={options.shadow}
+                    style={options.avatarStyle}
+                    className={hidden ? "hidden" : ""}
+                />
+            </Tippy>
         )
     } else {
         return <></>

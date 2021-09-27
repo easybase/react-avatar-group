@@ -3,12 +3,13 @@ import styled from '@emotion/styled';
 import SingleAvatar from './SingleAvatar';
 import OverflowAvatar from './OverflowAvatar';
 import { AvatarGroupOptions, IAvatar } from './types';
+import TooltipStyles from './TooltipStyles';
 
 const GroupDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    & img:first-child {
+    & img:first-of-type {
         margin-left: 3px;
     }
     &:hover img:nth-of-type(n+2) {
@@ -61,6 +62,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                             />)
                         }
                         <OverflowAvatar avatar={`+${props.avatars.length - props.max}`} options={props} key="avatar-overflow" hidden={overrideMax} />
+                        {!props.hideTooltip && <TooltipStyles tooltipStyle={props.tooltipStyle} />}
                     </GroupDiv>
                 );
             } else {
@@ -74,6 +76,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                             />)
                         }
                         <OverflowAvatar avatar={`+${props.avatars.length - props.max}`} options={props} key="avatar-overflow" />
+                        {!props.hideTooltip && <TooltipStyles tooltipStyle={props.tooltipStyle} />}
                     </GroupDiv>
                 );
             }
@@ -87,8 +90,10 @@ export default function AvatarGroup(props: IAvatarGroup) {
                             key={"avatar-nomax-" + i}
                         />)
                     }
+                    {!props.hideTooltip && <TooltipStyles tooltipStyle={props.tooltipStyle} />}
                 </GroupDiv>
             );
         }
     }
 }
+
