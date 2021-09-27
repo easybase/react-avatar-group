@@ -5,7 +5,12 @@ import OverflowAvatar from './OverflowAvatar';
 import { AvatarGroupOptions, IAvatar } from './types';
 
 const GroupDiv = styled.div`
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    & img:first-child {
+        margin-left: 3px;
+    }
     &:hover img:nth-of-type(n+2) {
         margin-left: 3px;
     }
