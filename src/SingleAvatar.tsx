@@ -1,42 +1,57 @@
 import React from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import { IAvatar, AvatarGroupOptions } from './types';
+import { colorFromName, cleanSearchParams, boxShadows } from './utils';
 
-const randomAvatarColor = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#009688", "#ffc107", "#ff9800", "#ff5722", "#795548"];
-
-function colorFromName(name: string) {
-    let hash = 0
-    let len = name.length;
-    for (let i = 0; i < len; i++) {
-        hash = ((hash << 5) - hash) + name.charCodeAt(i);
-        hash |= 0;
-    }
-    return randomAvatarColor[Math.abs(hash) % randomAvatarColor.length];
-}
-
-const Img = styled.img`
-    height: 25px;
-    width: 25px;
+const Img = styled.img<AvatarGroupOptions & { isOverflowAvatar?: boolean }>`
+    height: ${props => props.size}px;
+    width: ${props => props.size}px;
     position: relative;
     transition: .2s ease;
     margin-left: -10px;
-    border-radius: 50%;
+    border-radius: ${props => props.square ? '0px' : '50%'};
     user-select: none;
     user-drag: none;
+    box-shadow: ${props => props.shadow ? boxShadows[props.shadow] : "none"};
 `;
 
 
 interface IPersonAvatar {
-    name: string;
-    [x: string]: any;
+    avatar: string | IAvatar;
+    options: AvatarGroupOptions;
+    isOverflowAvatar?: boolean;
 }
 
-export default function PersonAvatar(props: IPersonAvatar) {
-    return (
-        <Img 
-            draggable="false"
-            alt={`ui-avatar-${props.name.charAt(0).toUpperCase()}`}
-            src={`https://ui-avatars.com/api/?name=${props.name.charAt(0).toUpperCase()}&size=50&font-size=0.66&color=FFFFFF&background=${colorFromName(props.name).slice(1)}`}
-            {...props}
-        />
-    )
+export default function PersonAvatar({ avatar, options, isOverflowAvatar }: IPersonAvatar) {
+    const size = options.size || 25;
+
+    if (typeof avatar === "string") {
+        const params = new URLSearchParams({
+            size: `${size * 2}`,
+            name: avatar,
+            "font-size": `${options.fontSize || 0.66}`,
+            color: options.fontColor || "FFFFFF",
+            background: options.backgroundColor || colorFromName(avatar).slice(1),
+            bold: options.bold ? 'true' : '',
+            uppercase: options.uppercase ? '' : 'false',
+            length: isOverflowAvatar ? '' : options.initialCharacters ? `${options.initialCharacters}` : '',
+            rounded: options.square ? 'false ' : ''
+        });
+        
+        cleanSearchParams(params);
+
+        return (
+            <Img
+                draggable="false"
+                alt={`ui-avatar-${avatar}`}
+                src={`https://ui-avatars.com/api/?${params.toString()}`}
+                size={size}
+                square={!!options.square}
+                isOverflowAvatar={isOverflowAvatar}
+                shadow={options.shadow}
+            />
+        )
+    } else {
+        return <></>
+    }
 }
