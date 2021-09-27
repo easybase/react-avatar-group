@@ -12,7 +12,8 @@
     "@types/react-dom": "^17.0.0",
     "microbundle": "^0.13.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "shx": "^0.3.3"
   },
   "peerDependencies": {
     "react": ">16.0.0",
@@ -27,7 +28,8 @@
     "start": "npm run build watch",
     "build": "microbundle --css inline --jsx React.createElement --jsxImportSource react --globals react/jsx-runtime=jsx --format modern,cjs",
     "test": "echo 'no test specified' || true",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "pages": "git checkout gh-pages && git rebase main && cd example && npm run build && shx cp -r ./build ../docs && cd .. && git add . && git commit -m \"gh-pages release\" && git push && git checkout main"
   },
   "eslintConfig": {
     "extends": [
