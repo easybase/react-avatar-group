@@ -40,7 +40,7 @@ export default function SingleAvatar({ avatar, options, hidden }: ISingleAvatar)
         cleanSearchParams(params);
 
         return (
-            <Tippy content="Hello" arrow disabled={options.hideTooltip}>
+            <Tippy content="Hello" arrow={options.tooltipArrow} disabled={options.hideTooltip}>
                 <Img
                     draggable="false"
                     alt={`ui-avatar-${avatar}`}

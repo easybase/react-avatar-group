@@ -30,6 +30,8 @@ export interface BaseAvatarGroup {
     hideTooltip?: boolean;
     // Styles applied to all tooltips
     tooltipStyle?: React.CSSProperties;
+    // Display tooltip arrow
+    tooltipArrow?: boolean;
 }
 
 export interface IImageAvatarGroup extends BaseAvatarGroup {

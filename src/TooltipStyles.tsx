@@ -11,11 +11,14 @@ export default ({ tooltipStyle }: { tooltipStyle?: React.CSSProperties }) => <Gl
 }
 .tippy-box {
     position: relative;
-    background-color: #333;
+    background-color: rgba(97, 97, 97, 0.92);
     color: #fff;
     border-radius: 4px;
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 0.6875rem;
+    max-width: 300px;
+    margin: 2px;
+    word-wrap: break-word;
+    font-weight: 500;
     outline: 0;
     transition-property: transform, visibility, opacity;
     ${tooltipStyle && css(tooltipStyle as Record<string, any>)}
@@ -64,7 +67,7 @@ export default ({ tooltipStyle }: { tooltipStyle?: React.CSSProperties }) => <Gl
 .tippy-arrow {
     width: 16px;
     height: 16px;
-    color: #333;
+    color: ${(tooltipStyle && tooltipStyle.backgroundColor) ? tooltipStyle.backgroundColor : "rgba(97, 97, 97, 0.92)" };
 }
 .tippy-arrow:before {
     content: "";
@@ -74,7 +77,7 @@ export default ({ tooltipStyle }: { tooltipStyle?: React.CSSProperties }) => <Gl
 }
 .tippy-content {
     position: relative;
-    padding: 5px 9px;
+    padding: 4px 8px;
     z-index: 1;
 }
 `} />
