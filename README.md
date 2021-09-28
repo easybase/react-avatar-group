@@ -1,46 +1,109 @@
-# React-avatar-group
+# react-avatar-group
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+  <a href="https://easybase.io">
+    <img src="/assets/example.gif" alt="easybase logo black" height="100">
+  </a>
+</p>
 
-## Available Scripts
+Developer-friendly React component to display responsive user avatars. Avatar images are powered by [UI Avatars](https://ui-avatars.com).
 
-In the project directory, you can run:
+### Basic Usage:
 
-### `yarn start`
+```jsx
+import React from 'react';
+import AvatarGroup from 'react-avatar-group';
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+function App() {
+  return (
+    <AvatarGroup
+      avatars={["James", "Amy", "Will" /* or avatar objects */]}
+      initialCharacters={1}
+      max={3}
+      size={60}
+      displayAllOnHover
+      shadow={2}
+    />
+  )
+}
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Props
 
-### `yarn test`
+#### `avatars: (string | IAvatar)[]`
+Array of strings with avatar names or Avatar object for more control
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `onAvatarClick?(avatar: string | IAvatar, index: number): any`
+Click handler for individual avatars
 
-### `yarn build`
+#### `max?: number`
+Limit the number of avatars that can be shown at once. If the avatar array length is greater than this number, an overflow avatar will be shown detailing how many avatars are hidden.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### `displayAllOnHover?: boolean`
+If `max` is provided and displayAllOnHover is true, even the overflowing avatars will be shown when the mouse hovers over the group element
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### `square?: boolean`
+Should the avatars be square instead of rounded
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### `size?: number`
+Avatar image size in pixels. Between: 16 and 512
 
-### `yarn eject`
+#### `randomBackgroundColors?: string[]`
+Array of Hex colors to choose from as background colors, without the hash (#). This will be overridden by `backgroundColor`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### `shadow?: number`
+Box-shadow elevation as an integer from 1 to 5
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `style?: React.CSSProperties`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `avatarStyle?: React.CSSProperties`
+Styles applied to all individual avatar components
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### `hideTooltip?: boolean`
+Don't display a tooltip when the mouse hovers over an individual avatar
 
-## Learn More
+#### `fontSize?: number`
+Font size in percentage of size. Between 0.1 and 1
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### `uppercase?: boolean`
+Decide if the API should uppercase the name/initials
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### `bold?: boolean`
+Boolean specifying if the returned letters should use a bold font
+
+#### `initialCharacters?: number`
+Length of the generated initials
+
+#### `backgroundColor?: string`
+Hex color for the image background, without the hash (#). Overrides `randomBackgroundColors`
+
+#### `fontColor?: string`
+Hex color for the font, without the hash (#)
+
+#### `tooltipStyle?: React.CSSProperties`
+Styles applied to all tooltips
+
+#### `tooltipArrow?: boolean`
+Display a small arrow on the tooltip
+
+### IAvatar
+This is an object that can be passed in the `avatars` array (instead of a string) for more control over individual avatars. All of these props will override the corresponding ones above.
+
+#### `avatar: string`
+The required avatar string
+
+#### `tooltip?: string`
+Custom text to put in the tooltip, rather than the `avatar` string
+
+#### `backgroundColor?: string`
+#### `fontColor?: string`
+#### `style?: React.CSSProperties`
+#### `fontSize?: number`
+
+<hr />
+
+### Built With
+
+* [UI Avatars](https://ui-avatars.com)
+* [Tippy.js](https://atomiks.github.io/tippyjs/)
+* [microbundle](https://github.com/developit/microbundle)

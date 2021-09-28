@@ -25,6 +25,7 @@ function App() {
         uppercase
         size={40}
         square
+        onAvatarClick={(avatar, index) => console.log(avatar, index)}
       />
       <ExampleGroup 
         name="Maximum avatars, display all on hover"
@@ -44,6 +45,7 @@ function App() {
         size={60}
         shadow={2}
         displayAllOnHover
+        onAvatarClick={(avatar, index) => console.log(avatar, index)}
       />
       <ExampleGroup
         name="Stress test max, don't display all on hover, custom random background colors array"
