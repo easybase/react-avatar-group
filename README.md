@@ -17,7 +17,7 @@ import AvatarGroup from 'react-avatar-group';
 function App() {
   return (
     <AvatarGroup
-      avatars={["James", "Amy", "Will" /* or avatar objects */]}
+      avatars={["James", "Amy", "Will" /* or IAvatar objects */]}
       initialCharacters={1}
       max={3}
       size={60}
