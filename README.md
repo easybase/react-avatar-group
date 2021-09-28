@@ -8,7 +8,7 @@
 
 Developer-friendly React component to display responsive user avatars. Avatar images are powered by [UI Avatars](https://ui-avatars.com). Some wilder variations can be seen [here](https://easybase.github.io/react-avatar-group/).
 
-### Basic Usage:
+### Basic Usage
 
 ```
 npm install react-avatar-group
@@ -116,3 +116,4 @@ Custom text to put in the tooltip, rather than the `avatar` string
 
 1. Allow for custom image urls
 2. Codepen example
+3. Avoid global tooltip css
