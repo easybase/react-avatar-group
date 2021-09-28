@@ -6,7 +6,7 @@
   </a>
 </p>
 
-Developer-friendly React component to display responsive user avatars. Avatar images are powered by [UI Avatars](https://ui-avatars.com).
+Developer-friendly React component to display responsive user avatars. Avatar images are powered by [UI Avatars](https://ui-avatars.com). Some wilder variations can be seen [here](https://easybase.github.io/react-avatar-group/).
 
 ### Basic Usage:
 
@@ -107,3 +107,8 @@ Custom text to put in the tooltip, rather than the `avatar` string
 * [UI Avatars](https://ui-avatars.com)
 * [Tippy.js](https://atomiks.github.io/tippyjs/)
 * [microbundle](https://github.com/developit/microbundle)
+
+### TODO
+
+1. Allow for custom image urls
+2. Codepen example
