@@ -1,5 +1,5 @@
 import AvatarGroup from 'react-avatar-group';
-import { names, extraColorArray } from './utils';
+import { names, extraColorArray, shuffle } from './utils';
 import './App.css'
 
 function ExampleGroup({ name, ...props }) {
@@ -62,6 +62,14 @@ function App() {
         size={60}
         square
         tooltipArrow
+      />
+      <AvatarGroup
+        avatars={shuffle([...names]).slice(0, 5)}
+        initialCharacters={1}
+        max={3}
+        size={60}
+        displayAllOnHover
+        shadow={2}
       />
     </div>
   );

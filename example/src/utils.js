@@ -206,3 +206,21 @@ export const extraColorArray = ['FF6633', 'FFB399', 'FF33FF', 'FFFF99', '00B3E6'
     '4D8066', '809980', 'E6FF80', '1AFF33', '999933',
     'FF3380', 'CCCC00', '66E64D', '4D80CC', '9900B3',
     'E64D66', '4DB380', 'FF4D4D', '99E6E6', '6666FF'];
+
+export function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
