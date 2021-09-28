@@ -17,9 +17,10 @@ interface ISingleAvatar {
     avatar: string | IAvatar;
     options: AvatarGroupOptions;
     hidden?: boolean;
+    onClick?: React.MouseEventHandler<HTMLImageElement>;
 }
 
-export default function SingleAvatar({ avatar, options, hidden }: ISingleAvatar) {
+export default function SingleAvatar({ avatar, options, hidden, onClick }: ISingleAvatar) {
     const size = options.size || 25;
 
     if (typeof avatar === "string") {
@@ -48,6 +49,7 @@ export default function SingleAvatar({ avatar, options, hidden }: ISingleAvatar)
                     shadow={options.shadow}
                     style={options.avatarStyle}
                     className={hidden ? "hidden" : ""}
+                    onClick={onClick}
                 />
             </Tippy>
         )
@@ -77,6 +79,7 @@ export default function SingleAvatar({ avatar, options, hidden }: ISingleAvatar)
                     shadow={options.shadow}
                     style={avatar.style || options.avatarStyle}
                     className={hidden ? "hidden" : ""}
+                    onClick={onClick}
                 />
             </Tippy>
         )

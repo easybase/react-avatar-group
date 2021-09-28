@@ -46,6 +46,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                                 options={props}
                                 hidden={i >= (props.max as number)}
                                 key={"avatar-max-" + i}
+                                onClick={_ => props.onAvatarClick && props.onAvatarClick(ele, i)}
                             />)
                         }
                         <OverflowAvatar avatar={`+${props.avatars.length - props.max}`} options={props} key="avatar-overflow" hidden={overrideMax} />
@@ -60,6 +61,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                                 avatar={ele}
                                 options={props}
                                 key={"avatar-max-" + i}
+                                onClick={_ => props.onAvatarClick && props.onAvatarClick(ele, i)}
                             />)
                         }
                         <OverflowAvatar avatar={`+${props.avatars.length - props.max}`} options={props} key="avatar-overflow" />
@@ -75,6 +77,7 @@ export default function AvatarGroup(props: IAvatarGroup) {
                             avatar={ele}
                             options={props}
                             key={"avatar-nomax-" + i}
+                            onClick={_ => props.onAvatarClick && props.onAvatarClick(ele, i)}
                         />)
                     }
                     {!props.hideTooltip && <TooltipStyles tooltipStyle={props.tooltipStyle} />}

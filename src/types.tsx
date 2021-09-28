@@ -12,7 +12,7 @@ export interface IAvatar {
 }
 
 export interface BaseAvatarGroup {
-    onAvatarClick?(avatar: string, index: number): any;
+    onAvatarClick?(avatar: string | IAvatar, index: number): any;
     // Limit the number of avatars that can be shown at once. If the avatar array length is greater than this number, an overflow avatar will be shown detailing how many avatars are hidden.
     max?: number;
     // If `max` is provided and displayAllOnHover is true, even the overflowing avatars will be shown when the mouse hovers over the group element
