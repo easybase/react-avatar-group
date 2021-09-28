@@ -3,7 +3,10 @@
   "main": "dist/index.js",
   "author": "easybase",
   "license": "MIT",
-  "repository": "easybase/react-avatar-group",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/easybase/react-avatar-group.git"
+  },
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "version": "1.0.0",
