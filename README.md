@@ -10,6 +10,10 @@ Developer-friendly React component to display responsive user avatars. Avatar im
 
 ### Basic Usage:
 
+```
+npm install react-avatar-group
+```
+
 ```jsx
 import React from 'react';
 import AvatarGroup from 'react-avatar-group';
